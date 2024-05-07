@@ -54,6 +54,9 @@ body {
   gap: 0px;
   border-radius: 4px 0px 0px 0px;
   opacity: 0px;
+  transition-duration: 250ms;
+  transition-timing-function: cubic;
+  transition-property: color, background-color;
 }
 
 .button-request:hover {
@@ -69,14 +72,8 @@ body {
 .top-page:hover {
   color: var(--blue);
 }
-.top-page:focus {
-  color: var(--blue);
-}
 
-.mail:hover {
-  color: var(--blue);
-}
-.mail:focus {
+.top-page:focus {
   color: var(--blue);
 }
 
@@ -531,25 +528,17 @@ body {
   gap: 40px;
 }
 
-.mail {
-  color: var(--light-black);
-  padding-left: 385px;
-  font-family: Roboto;
-  display: inline-block;
-}
-
 .tel {
   color: var(--light-black);
   font-family: Roboto;
   width: 113px;
   height: 16px;
-
   font-family: Roboto;
   font-size: 14px;
   font-weight: 500;
   line-height: 16.41px;
   text-align: left;
-  padding-left: 40px;
+  padding-left: 10px;
   display: inline-block;
 }
 
@@ -599,7 +588,18 @@ body {
 
 .cards {
   display: inline-block;
+  position: relative;
 }
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(-100%);
+}
+
 .principal {
   margin-left: 215px;
   margin-bottom: 94px;
@@ -640,6 +640,7 @@ body {
   padding-bottom: 20px;
   padding-right: 24px;
 }
+
 .box1:hover {
   margin-right: 30px;
   border: 1px solid #eeeeee;
@@ -795,4 +796,77 @@ body {
 }
 .title-information {
   padding-top: 30px;
+}
+
+.svgmail {
+  width: 16px;
+  height: 12px;
+  padding-left: 330px;
+}
+
+.svgphone {
+  width: 10px;
+  height: 16px;
+  padding-left: 40px;
+}
+
+.mail1 {
+  display: inline-flex;
+}
+
+.mail {
+  color: var(--light-black);
+  padding-left: 10px;
+  font-family: Roboto;
+}
+
+.mail:hover {
+  color: #2196f3;
+}
+
+.svgmail:hover {
+  fill: #2196f3;
+}
+
+.mail1:hover {
+  color: #2196f3;
+}
+
+/*Style pentru modal*/
+
+.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+[data-modal] {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.is-hidden [data-modal-content] {
+  transform: translate(-50%, -50%) scale(0.5);
+}
+
+[data-modal-content] {
+  width: 528px;
+  height: 581px;
+  background-color: var(--white);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(1);
+  transition-duration: 1s;
+  padding: 20px;
+}
+
+[data-modal-close] {
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }
